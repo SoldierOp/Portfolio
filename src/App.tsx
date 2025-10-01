@@ -100,13 +100,15 @@ const App: React.FC = () => {
               far: 1000,
             }}
             gl={{
-              antialias: true,
+              antialias: window.innerWidth > 768,
               alpha: true,
+              powerPreference: "high-performance",
             }}
             dpr={window.innerWidth < 768 ? 0.5 : window.innerWidth < 1024 ? 0.75 : 1}
             performance={{ 
               min: window.innerWidth < 480 ? 0.2 : window.innerWidth < 768 ? 0.3 : window.innerWidth < 1024 ? 0.4 : 0.5 
             }}
+            style={{ touchAction: 'none' }}
           >
             <Suspense fallback={null}>
               {/* Interactive Background */}

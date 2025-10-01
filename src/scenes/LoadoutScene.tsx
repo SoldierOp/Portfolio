@@ -256,20 +256,24 @@ const LoadoutScene: React.FC = () => {
 
       {/* Camera Controls */}
       <OrbitControls
-        enablePan={window.innerWidth < 1024 ? true : false}
+        enablePan={true}
         enableZoom={true}
         enableRotate={true}
-        minDistance={window.innerWidth < 480 ? 12 : window.innerWidth < 768 ? 12 : window.innerWidth < 1024 ? 10 : 8}
-        maxDistance={window.innerWidth < 480 ? 30 : window.innerWidth < 768 ? 25 : window.innerWidth < 1024 ? 22 : 20}
-        minPolarAngle={Math.PI / 6}
-        maxPolarAngle={Math.PI - Math.PI / 6}
+        minDistance={window.innerWidth < 480 ? 8 : window.innerWidth < 768 ? 6 : 4}
+        maxDistance={window.innerWidth < 480 ? 25 : window.innerWidth < 768 ? 20 : 15}
+        minPolarAngle={0}
+        maxPolarAngle={Math.PI}
         autoRotate={false}
         touches={{
-          ONE: window.innerWidth < 768 ? 2 : 1,
-          TWO: window.innerWidth < 768 ? 1 : 2,
+          ONE: 1,
+          TWO: 2,
         }}
-        dampingFactor={window.innerWidth < 768 ? 0.1 : 0.05}
+        dampingFactor={0.05}
         enableDamping={true}
+        screenSpacePanning={false}
+        panSpeed={1}
+        rotateSpeed={1}
+        zoomSpeed={1}
       />
     </>
   );

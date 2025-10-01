@@ -151,11 +151,15 @@ body {
   height: 100%;
   background: transparent;
   z-index: 1;
-  pointer-events: none;
+  pointer-events: auto;
+  touch-action: none;
 }
 
 .main-canvas canvas {
   pointer-events: auto;
+  touch-action: none;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* Scrollable Content */
@@ -186,22 +190,27 @@ body {
 /* Z-Index Management */
 header {
   z-index: 1000 !important;
+  position: relative;
 }
 
 footer {
   z-index: 1000 !important;
+  position: relative;
 }
 
 .navigation-guide {
   z-index: 30 !important;
+  position: relative;
 }
 
 .hud-container {
   z-index: 20 !important;
+  position: relative;
 }
 
 .main-canvas {
   z-index: 1 !important;
+  position: fixed;
 }
 
 /* HTML Overlay Management */
@@ -210,18 +219,21 @@ footer {
   z-index: 50;
   max-width: 400px;
   word-wrap: break-word;
+  position: relative;
 }
 
 .html-overlay-title {
   pointer-events: auto;
   z-index: 60;
   max-width: 300px;
+  position: relative;
 }
 
 .html-overlay-content {
   pointer-events: auto;
   z-index: 40;
   max-width: 350px;
+  position: relative;
 }
 
 /* Prevent HTML overlapping */
@@ -1271,6 +1283,7 @@ footer {
   .html-overlay-content {
     max-width: 240px !important;
     padding: 0.5rem !important;
+    margin: 0.5rem !important;
   }
   
   .html-overlay-content h3 {
@@ -1285,11 +1298,16 @@ footer {
   
   .glass-morphism {
     padding: 0.75rem !important;
+    margin: 0.5rem !important;
   }
   
   /* Reduce 3D scene complexity on mobile */
   .main-canvas {
-    dpr: 0.5;
+    touch-action: none;
+  }
+  
+  .main-canvas canvas {
+    touch-action: none;
   }
   
   /* Adjust header for mobile */
@@ -1333,6 +1351,16 @@ footer {
     min-height: 44px;
     min-width: 44px;
   }
+  
+  /* Fix overlapping issues */
+  .app {
+    overflow: hidden;
+  }
+  
+  /* Ensure proper spacing between elements */
+  .html-overlay {
+    margin: 1rem !important;
+  }
 }
 
 /* Mobile Portrait */
@@ -1355,6 +1383,7 @@ footer {
   .html-overlay-content {
     max-width: 200px !important;
     padding: 0.4rem !important;
+    margin: 0.3rem !important;
   }
   
   .html-overlay-content h3 {
@@ -1369,11 +1398,16 @@ footer {
   
   .glass-morphism {
     padding: 0.5rem !important;
+    margin: 0.3rem !important;
   }
   
   /* Further reduce 3D complexity */
   .main-canvas {
-    dpr: 0.3;
+    touch-action: none;
+  }
+  
+  .main-canvas canvas {
+    touch-action: none;
   }
   
   /* Stack elements vertically on very small screens */
@@ -1401,6 +1435,21 @@ footer {
   
   .footer .container {
     padding: 0.4rem 0.8rem;
+  }
+  
+  /* Fix overlapping issues on small screens */
+  .app {
+    overflow: hidden;
+  }
+  
+  .html-overlay {
+    margin: 0.5rem !important;
+  }
+  
+  /* Ensure elements don't overlap */
+  .html-overlay-content {
+    position: relative;
+    z-index: 10;
   }
 }
 
