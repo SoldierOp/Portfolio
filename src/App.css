@@ -1156,6 +1156,38 @@ footer {
 }
 
 /* Responsive Design */
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .main-canvas {
+    height: 100vh;
+  }
+  
+  .html-overlay-content {
+    max-width: 280px !important;
+    padding: 0.75rem !important;
+  }
+  
+  .html-overlay-content h3 {
+    font-size: 0.875rem !important;
+  }
+  
+  .html-overlay-content p {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .glass-morphism {
+    padding: 1rem !important;
+  }
+  
+  .tactical-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile Landscape */
 @media (max-width: 768px) {
   .loading-logo {
     font-size: 1.5rem;
@@ -1169,8 +1201,52 @@ footer {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
+  
+  .html-overlay-content {
+    max-width: 240px !important;
+    padding: 0.5rem !important;
+  }
+  
+  .html-overlay-content h3 {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .html-overlay-content p {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .glass-morphism {
+    padding: 0.75rem !important;
+  }
+  
+  /* Reduce 3D scene complexity on mobile */
+  .main-canvas {
+    dpr: 0.5;
+  }
+  
+  /* Adjust header for mobile */
+  .header nav {
+    display: none;
+  }
+  
+  .header .container {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Footer adjustments */
+  .footer .container {
+    padding: 0.5rem 1rem;
+  }
+  
+  .footer .grid-cols-5 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
+/* Mobile Portrait */
 @media (max-width: 480px) {
   .loading-logo {
     font-size: 1.25rem;
@@ -1183,6 +1259,62 @@ footer {
   .tactical-button {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
+  }
+  
+  .html-overlay-content {
+    max-width: 200px !important;
+    padding: 0.4rem !important;
+  }
+  
+  .html-overlay-content h3 {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  
+  .html-overlay-content p {
+    font-size: 0.65rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  .glass-morphism {
+    padding: 0.5rem !important;
+  }
+  
+  /* Further reduce 3D complexity */
+  .main-canvas {
+    dpr: 0.3;
+  }
+  
+  /* Stack elements vertically on very small screens */
+  .header .flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer .flex-col {
+    gap: 0.5rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .interactive-element:hover {
+    transform: none;
+  }
+  
+  .interactive-element:hover::before {
+    left: -100%;
+  }
+  
+  /* Increase touch targets */
+  .tactical-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .group:hover .group-hover\:scale-110 {
+    transform: none;
   }
 }
 

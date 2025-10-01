@@ -103,8 +103,8 @@ const App: React.FC = () => {
               antialias: true,
               alpha: true,
             }}
-            dpr={1}
-            performance={{ min: 0.5 }}
+            dpr={window.innerWidth < 768 ? 0.5 : 1}
+            performance={{ min: window.innerWidth < 768 ? 0.3 : 0.5 }}
           >
             <Suspense fallback={null}>
               {/* Interactive Background */}

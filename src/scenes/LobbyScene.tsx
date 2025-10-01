@@ -61,7 +61,7 @@ const FloatingParticles: React.FC = () => {
         }
       });
 
-  const particleCount = 2000; // MIND-BLOWING: 20x more particles!
+  const particleCount = window.innerWidth < 768 ? 500 : 2000; // Reduced particles on mobile
   const positions = new Float32Array(particleCount * 3);
   const colors = new Float32Array(particleCount * 3);
   
@@ -413,15 +413,19 @@ const LobbyScene: React.FC = () => {
 
       {/* Camera Controls */}
       <OrbitControls
-        enablePan={false}
+        enablePan={window.innerWidth < 768 ? true : false}
         enableZoom={true}
         enableRotate={true}
-        minDistance={3}
-        maxDistance={10}
+        minDistance={window.innerWidth < 768 ? 5 : 3}
+        maxDistance={window.innerWidth < 768 ? 15 : 10}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI - Math.PI / 6}
         autoRotate={false}
         autoRotateSpeed={0.5}
+        touches={{
+          ONE: window.innerWidth < 768 ? 2 : 1, // Two-finger rotation on mobile
+          TWO: window.innerWidth < 768 ? 1 : 2, // One-finger pan on mobile
+        }}
       />
     </>
   );

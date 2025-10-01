@@ -174,11 +174,15 @@ const RadioScene: React.FC = () => {
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
-        minDistance={5}
-        maxDistance={15}
+        minDistance={window.innerWidth < 768 ? 8 : 5}
+        maxDistance={window.innerWidth < 768 ? 20 : 15}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI - Math.PI / 6}
         autoRotate={false}
+        touches={{
+          ONE: window.innerWidth < 768 ? 2 : 1,
+          TWO: window.innerWidth < 768 ? 1 : 2,
+        }}
       />
     </>
   );

@@ -10,6 +10,7 @@ const Header: React.FC = () => {
   const location = useLocation();
   const [logoClickCount, setLogoClickCount] = useState(0);
   const [showMatrixRain, setShowMatrixRain] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogoClick = () => {
     navigate('/lobby');
@@ -112,7 +113,10 @@ const Header: React.FC = () => {
             </div>
             
             {/* Mobile Menu Button */}
-            <button className="md:hidden p-2 text-tactical-primary hover:text-holo-green transition-colors duration-300 interactive-element">
+            <button 
+              className="md:hidden p-2 text-tactical-primary hover:text-holo-green transition-colors duration-300 interactive-element"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -120,6 +124,32 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-tactical-dark/95 backdrop-blur-md border-t border-tactical-primary/30">
+          <div className="container mx-auto px-6 py-4">
+            <nav className="flex flex-col space-y-2">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.route}
+                  className={`px-4 py-3 rounded-md font-tactical font-medium text-sm transition-all duration-300 interactive-element text-left ${
+                    getCurrentRoute() === item.route
+                      ? 'bg-tactical-primary text-tactical-dark shadow-md neon-border animate-glow'
+                      : 'text-tactical-secondary hover:text-tactical-primary hover:bg-tactical-gray/30 hover:neon-border'
+                  }`}
+                  onClick={() => {
+                    navigate(`/${item.route}`);
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
       
       {/* SECRET EASTER EGG: Matrix Rain Effect */}
       <MatrixRain isActive={showMatrixRain} onComplete={handleMatrixComplete} />

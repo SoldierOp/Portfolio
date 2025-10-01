@@ -259,11 +259,15 @@ const LoadoutScene: React.FC = () => {
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
-        minDistance={8}
-        maxDistance={20}
+        minDistance={window.innerWidth < 768 ? 12 : 8}
+        maxDistance={window.innerWidth < 768 ? 25 : 20}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI - Math.PI / 6}
         autoRotate={false}
+        touches={{
+          ONE: window.innerWidth < 768 ? 2 : 1,
+          TWO: window.innerWidth < 768 ? 1 : 2,
+        }}
       />
     </>
   );
