@@ -1,10 +1,10 @@
-# Mayank Chauhan - AI & Robotics Engineer Portfolio
+# Mayank Chauhan - Portfolio
 
 A stunning 3D interactive portfolio showcasing my work as an AI & Robotics Engineer, built with React Three Fiber and modern web technologies.
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [Your Domain Here]
+Visit the live portfolio: [mayankchauhan.me]
 
 ## ✨ Features
 
