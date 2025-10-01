@@ -4,7 +4,7 @@ A stunning 3D interactive portfolio showcasing my work as an AI & Robotics Engin
 
 ## 🚀 Live Demo
 
-Visit the live portfolio: [mayankchauhan.me]
+Visit the live portfolio: www.mayankchauhan.me
 
 ## ✨ Features
 
