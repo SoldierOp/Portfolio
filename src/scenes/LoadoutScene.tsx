@@ -256,11 +256,11 @@ const LoadoutScene: React.FC = () => {
 
       {/* Camera Controls */}
       <OrbitControls
-        enablePan={true}
+        enablePan={window.innerWidth < 1024 ? true : false}
         enableZoom={true}
         enableRotate={true}
-        minDistance={window.innerWidth < 768 ? 12 : 8}
-        maxDistance={window.innerWidth < 768 ? 25 : 20}
+        minDistance={window.innerWidth < 480 ? 12 : window.innerWidth < 768 ? 12 : window.innerWidth < 1024 ? 10 : 8}
+        maxDistance={window.innerWidth < 480 ? 30 : window.innerWidth < 768 ? 25 : window.innerWidth < 1024 ? 22 : 20}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI - Math.PI / 6}
         autoRotate={false}
@@ -268,6 +268,8 @@ const LoadoutScene: React.FC = () => {
           ONE: window.innerWidth < 768 ? 2 : 1,
           TWO: window.innerWidth < 768 ? 1 : 2,
         }}
+        dampingFactor={window.innerWidth < 768 ? 0.1 : 0.05}
+        enableDamping={true}
       />
     </>
   );

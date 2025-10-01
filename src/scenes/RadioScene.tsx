@@ -171,11 +171,11 @@ const RadioScene: React.FC = () => {
 
       {/* Camera Controls */}
       <OrbitControls
-        enablePan={true}
+        enablePan={window.innerWidth < 1024 ? true : false}
         enableZoom={true}
         enableRotate={true}
-        minDistance={window.innerWidth < 768 ? 8 : 5}
-        maxDistance={window.innerWidth < 768 ? 20 : 15}
+        minDistance={window.innerWidth < 480 ? 8 : window.innerWidth < 768 ? 8 : window.innerWidth < 1024 ? 6 : 5}
+        maxDistance={window.innerWidth < 480 ? 25 : window.innerWidth < 768 ? 20 : window.innerWidth < 1024 ? 18 : 15}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI - Math.PI / 6}
         autoRotate={false}
@@ -183,6 +183,8 @@ const RadioScene: React.FC = () => {
           ONE: window.innerWidth < 768 ? 2 : 1,
           TWO: window.innerWidth < 768 ? 1 : 2,
         }}
+        dampingFactor={window.innerWidth < 768 ? 0.1 : 0.05}
+        enableDamping={true}
       />
     </>
   );

@@ -1157,6 +1157,45 @@ footer {
 
 /* Responsive Design */
 
+/* Large Tablet Styles */
+@media (max-width: 1200px) {
+  .html-overlay-content {
+    max-width: 320px !important;
+    padding: 1rem !important;
+  }
+  
+  .html-overlay-content h3 {
+    font-size: 1rem !important;
+  }
+  
+  .html-overlay-content p {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  .glass-morphism {
+    padding: 1.25rem !important;
+  }
+  
+  .tactical-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Header adjustments for large tablets */
+  .header .container {
+    padding: 0.75rem 2rem;
+  }
+  
+  .header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .header p {
+    font-size: 0.8rem;
+  }
+}
+
 /* Tablet Styles */
 @media (max-width: 1024px) {
   .main-canvas {
@@ -1184,6 +1223,31 @@ footer {
   .tactical-button {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
+    min-height: 40px;
+    min-width: 40px;
+  }
+  
+  /* Header adjustments for tablet */
+  .header .container {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 1.125rem;
+  }
+  
+  .header p {
+    font-size: 0.75rem;
+  }
+  
+  /* Footer adjustments for tablet */
+  .footer .container {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .footer .grid-cols-5 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -1200,6 +1264,8 @@ footer {
   .tactical-button {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
+    min-height: 44px;
+    min-width: 44px;
   }
   
   .html-overlay-content {
@@ -1235,6 +1301,14 @@ footer {
     padding: 0.5rem 1rem;
   }
   
+  .header h1 {
+    font-size: 1rem;
+  }
+  
+  .header p {
+    font-size: 0.7rem;
+  }
+  
   /* Footer adjustments */
   .footer .container {
     padding: 0.5rem 1rem;
@@ -1243,6 +1317,21 @@ footer {
   .footer .grid-cols-5 {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+  
+  /* Custom cursor adjustments for mobile */
+  .custom-cursor {
+    display: none;
+  }
+  
+  body {
+    cursor: auto;
+  }
+  
+  /* Improve touch targets */
+  .interactive-element {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 
@@ -1259,6 +1348,8 @@ footer {
   .tactical-button {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
+    min-height: 44px;
+    min-width: 44px;
   }
   
   .html-overlay-content {
@@ -1291,8 +1382,25 @@ footer {
     gap: 0.5rem;
   }
   
+  .header h1 {
+    font-size: 0.9rem;
+  }
+  
+  .header p {
+    font-size: 0.65rem;
+  }
+  
   .footer .flex-col {
     gap: 0.5rem;
+  }
+  
+  /* Ultra-compact mobile layout */
+  .header .container {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .footer .container {
+    padding: 0.4rem 0.8rem;
   }
 }
 
@@ -1315,6 +1423,28 @@ footer {
   /* Remove hover effects on touch devices */
   .group:hover .group-hover\:scale-110 {
     transform: none;
+  }
+  
+  /* Disable custom cursor on touch devices */
+  .custom-cursor {
+    display: none !important;
+  }
+  
+  body {
+    cursor: auto !important;
+  }
+  
+  /* Improve touch feedback */
+  .tactical-button:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, var(--tactical-light-gray) 0%, var(--tactical-gray) 100%);
+  }
+  
+  /* Better touch targets for navigation */
+  .header button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem;
   }
 }
 

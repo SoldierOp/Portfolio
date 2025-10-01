@@ -89,7 +89,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Navigation Menu */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-1">
             {navigationItems.map((item) => (
               <button
                 key={item.route}
@@ -114,7 +114,7 @@ const Header: React.FC = () => {
             
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden p-2 text-tactical-primary hover:text-holo-green transition-colors duration-300 interactive-element"
+              className="lg:hidden p-2 text-tactical-primary hover:text-holo-green transition-colors duration-300 interactive-element"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-tactical-dark/95 backdrop-blur-md border-t border-tactical-primary/30">
+        <div className="lg:hidden bg-tactical-dark/95 backdrop-blur-md border-t border-tactical-primary/30">
           <div className="container mx-auto px-6 py-4">
             <nav className="flex flex-col space-y-2">
               {navigationItems.map((item) => (
